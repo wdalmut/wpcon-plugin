@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: WP Conf 2012
-Plugin URI: http://www.wpcon.it/
+Plugin URI: https://github.com/wdalmut/wpcon-plugin
 Description: Just a simple example to show xdebug remote debuggin features.
 Version: 0.0.1
 Author: Walter Dal Mut
