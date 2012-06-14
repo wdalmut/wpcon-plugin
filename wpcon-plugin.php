@@ -2,7 +2,7 @@
 /*
 Plugin Name: WP Conf 2012
 Plugin URI: http://www.wpcon.it/
-Description: Just a simple example
+Description: Just a simple example to show xdebug remote debuggin features.
 Version: 0.0.1
 Author: Walter Dal Mut
 Author URI: http://www.corley.it
@@ -24,7 +24,12 @@ function wpcon_dashboard_widget_function() {
     
     echo "<ul>";
         foreach ($unpack as $element) {
-            echo "<li>{$element->text}</li>";
+            echo "<li>
+                <a href='https://www.twitter.com/{$element->user->name}/status/{$element->id_str}' target='_blank'>{$element->text}</a>
+                <ul>
+                    <li><a href='https://www.twitter.com/{$element->user->name}' target='_blank'>@{$element->user->screen_name}</a></li>
+                </ul>
+            </li>";
         }
     echo "</ul>";
 }
