@@ -4,3 +4,4 @@
 *.phar
 *.lock
 vendor
+cache/*
