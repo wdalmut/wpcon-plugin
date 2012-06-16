@@ -9,6 +9,16 @@ Author URI: http://www.corley.it
 License: MIT
 */
 
+require_once dirname(__FILE__) . '/vendor/autoload.php';
+
+static $twig = null;
+
+function upcloo_twig_autoload() {
+    Twig_Autoloader::register();
+    get_twig();
+}
+
+add_action('init', 'upcloo_twig_autoload');
 add_action('wp_dashboard_setup', 'upcloo_add_dashboard_widgets' );
 
 function upcloo_add_dashboard_widgets() {
@@ -22,17 +32,17 @@ function wpcon_dashboard_widget_function() {
     
     $unpack = json_decode($data);
     
-    echo "<ul>";
-        //Add $i counter for conditional debugging
-        $i=0;
-        foreach ($unpack as $element) {
-            echo "<li>
-                <a href='https://www.twitter.com/{$element->user->name}/status/{$element->id_str}' target='_blank'>{$element->text}</a>
-                <ul>
-                    <li><a href='https://www.twitter.com/{$element->user->name}' target='_blank'>@{$element->user->screen_name}</a></li>
-                </ul>
-            </li>";
-            $i++;
-        }
-    echo "</ul>";
+    $template = get_twig()->loadTemplate('tweets.twig');
+    echo $template->render(array('elements' => $unpack));
+}
+
+function get_twig()
+{
+    static $twig;
+    if (!$twig) {
+        $loader = new Twig_Loader_Filesystem(dirname(__FILE__) . '/templates');
+        $twig = new Twig_Environment($loader, array('cache' => false));
+    }
+
+    return $twig;
 }
