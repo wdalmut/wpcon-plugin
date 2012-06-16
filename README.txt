@@ -8,6 +8,7 @@ Stable tag: 0.0.1
 
 Just a simple example to show xdebug remote debuggin features.
 
+ * Branch feature/twig-template => Twig Template Engine integration on WP Plugin
 
 == Description ==
 
