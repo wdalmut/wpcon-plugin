@@ -11,8 +11,6 @@ License: MIT
 
 require_once dirname(__FILE__) . '/vendor/autoload.php';
 
-static $twig = null;
-
 function upcloo_twig_autoload() {
     Twig_Autoloader::register();
     get_twig();
@@ -41,7 +39,7 @@ function get_twig()
     static $twig;
     if (!$twig) {
         $loader = new Twig_Loader_Filesystem(dirname(__FILE__) . '/templates');
-        $twig = new Twig_Environment($loader, array('cache' => false));
+        $twig = new Twig_Environment($loader, array('cache' => dirname(__FILE__) . '/cache'));
     }
 
     return $twig;
