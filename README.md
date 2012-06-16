@@ -46,7 +46,7 @@ function get_twig()
 We have Twig into our plugin... Just use it
 
 ```php
-
+<?php
 function a_wp_real_hook() {
     $data = array( 
         /* My data */ 
