@@ -47,18 +47,10 @@ We have Twig into our plugin... Just use it
 
 ```php
 <?php
-function a_wp_real_hook() {
-    $data = array( 
-        /* My data */ 
-    );
-    
-    $unpack = json_decode($data);
-    
-    // Load template file
-    $template = get_twig()->loadTemplate('tweets.twig');
-    
-    // Print 
-    echo $template->render(array('elements' => $unpack));
-}
+// Load template file
+$template = get_twig()->loadTemplate('tweets.twig');
+
+// Print 
+echo $template->render(array('elements' => $data));
 ```
 
