@@ -6,8 +6,9 @@ Requires at least: 3.0
 Tested up to: 3.3
 Stable tag: 0.0.1
 
-Just a simple example to show xdebug remote debuggin features.
+Just a simple example to show xdebug remote debugging features.
 
+ * Branch feature/twig-template => Twig Template Engine integration on WP Plugin
 
 == Description ==
 
